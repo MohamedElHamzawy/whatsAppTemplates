@@ -1,0 +1,28 @@
+.headline {text-align: center;font-size: xx-large;font-weight: 600;background-color: #d9dadf;padding: 0.5em;margin: 0px 0px 1em 0px;}
+.textBoxes {display: grid;grid-template-columns: 1fr 1fr 1fr;margin-bottom: 0.5em;padding-bottom: 1em;}
+.left-side {grid-column: 1; text-align: center;}
+.center-side {grid-column: 2; text-align: center;}
+.right-side {grid-column: 3; text-align: center;}
+.skuContainer {padding: 1em 0.5em;background-color: white;box-shadow: 1px 1px 5px #c9c9c9, -1px -1px 5px #c9c9c9, -1px 1px 5px #c9c9c9, 1px -1px 5px #c9c9c9;border-radius: 5px;display: flex;justify-content: center;}
+.skuContainer input[type=text] {width: 85%;text-align: center;border: none;}
+.skuContainer button {background-color: #d9dadf;border: none;font-size: medium;font-weight: 600;border-radius: 5px;padding: 6px 50px;cursor: pointer;}
+.productTable {margin-top: 20px;width: 100%;border-spacing: 0;border-collapse: collapse;}
+.productTable tr td {color: black; text-align: center;font-weight: bold;border: 1px solid #ddd;font-size: 13px;background-color: white;}
+.table-title {text-align: center;background-color: #1d2327;font-weight: bold;color: white;font-size: 17px;width: 100%;}
+.table-sub-title {text-align: center;background-color: #d9dadf;font-weight: bold;color: black;font-size: 15px;}
+.table-footer {text-align: center;background-color: #1d2327;color: white;font-weight: bold;font-size: 17px;}
+.table-footer th input {text-align: center;background-color: #1d2327;color: white;font-weight: bold;font-size: 15px;width: 6em;height: 20px;border: none;}
+.btnCreate {background-color: #d9dadf;border: none;font-size: medium;font-weight: 600;border-radius: 5px;padding: 6px 50px;cursor: pointer;margin: 1em 40%;}
+.disappear {display: none;}
+.newTemplate {padding: 1em;box-shadow: 1px 1px 5px #dddddd;}
+.newTemplate label {display: block;margin-top: 1em;font-size: larger;font-weight: 600;letter-spacing: 1px;}
+.newTemplate input {width: 25%;}
+.newTemplate select {width: 25%;}
+.addTeam {padding: 1em;box-shadow: 1px 1px 5px #dddddd;}
+.addTeam label {display: block;margin-top: 1em;font-size: larger;font-weight: 600;letter-spacing: 1px;}
+.addTeam select {width: 25%;}
+.editTemplate {padding: 1em;box-shadow: 1px 1px 5px #dddddd;}
+.editTemplate label {display: block;margin-top: 1em;font-size: larger;font-weight: 600;letter-spacing: 1px;}
+.editTemplate select {width: 25%;}
+.details {display: grid;grid-template-columns: 1fr 1fr;}
+.team {cursor: pointer;margin: 1em 1em 0em 0em;border: 1px solid #c5c5c5;padding: 2px 20px;border-radius: 3px;background-color: #e1e1e1;font-weight: 500;}
