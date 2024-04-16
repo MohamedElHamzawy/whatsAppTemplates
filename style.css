@@ -26,3 +26,10 @@
 .editTemplate select {width: 25%;}
 .details {display: grid;grid-template-columns: 1fr 1fr;}
 .team {cursor: pointer;margin: 1em 1em 0em 0em;border: 1px solid #c5c5c5;padding: 2px 20px;border-radius: 3px;background-color: #e1e1e1;font-weight: 500;}
+.addMember {padding: 1em;box-shadow: 1px 1px 5px #dddddd;}
+.addMember label {display: block;margin-top: 1em;font-size: larger;font-weight: 600;letter-spacing: 1px;}
+.addMember select {width: 25%;}
+.editTeam {padding: 1em;box-shadow: 1px 1px 5px #dddddd;}
+.editTeam label {display: block;margin-top: 1em;font-size: larger;font-weight: 600;letter-spacing: 1px;}
+.editTeam select {width: 25%;}
+.member {cursor: pointer;margin: 1em 1em 0em 0em;border: 1px solid #c5c5c5;padding: 2px 20px;border-radius: 3px;background-color: #e1e1e1;font-weight: 500;}

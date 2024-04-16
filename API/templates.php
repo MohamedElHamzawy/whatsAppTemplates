@@ -15,16 +15,7 @@ function whatsaAppTemplatesRoutes()
             "name" => array(
                 "type" => "string",
                 "required" => true
-            ),
-            "status" => array(
-                "type" => "string",
-                "required" => true
-            ),
-            "content" => array(
-                "type" => "string",
-                "required" => true
-            )
-        )
+        ))
     ));
 
     register_rest_route("whatsapp/v1", "templates/(?P<id>\d+)", array(

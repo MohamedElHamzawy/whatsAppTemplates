@@ -8,6 +8,7 @@ Author: DreamCity | Moamen
 include 'includes/install.php';
 register_activation_hook(__FILE__, 'whatsappActivation');
 require(plugin_dir_path(__FILE__) . 'API/templates.php');
+require(plugin_dir_path(__FILE__) . 'API/teams.php');
 class Whatsapp_Templates
 {
     public function __construct()
@@ -20,8 +21,10 @@ class Whatsapp_Templates
         $mainHook = add_menu_page('Whatsapp Templates', 'Whatsapp Templates', 'manage_options', 'whatsapp-templates', array($this, 'whatsappTemplatesPage'), 'dashicons-text', 10);
         $teamsHook = add_submenu_page('whatsapp-templates', 'Whatsapp Teams' , 'Whatsapp Templates' , 'manage_options' ,'whatsapp-templates' ,array($this,'whatsappTemplatesPage'));
         $teamsHook = add_submenu_page('whatsapp-templates', 'Whatsapp Teams' , 'Whatsapp Teams' , 'manage_options' ,'whatsapp-teams' ,array($this,'teamsSubPage'));
+        $membersHook = add_submenu_page('whatsapp-templates', 'Whatsapp Members' , 'Whatsapp members' , 'manage_options' ,'whatsapp-members' ,array($this,'membersSubPage'));
         add_action("load-{$mainHook}", array($this, "pluginFiles"));
         add_action("load-{$teamsHook}", array($this, "pluginFiles"));
+        add_action("load-{$membersHook}", array($this, "pluginFiles"));
     }
 
     function pluginFiles()
@@ -37,5 +40,8 @@ class Whatsapp_Templates
     {
         include 'pages/teams.php';
     }
+    function membersSubPage(){
+        include 'pages/members.php';
+    } 
 }
 new Whatsapp_Templates();
