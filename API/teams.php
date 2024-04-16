@@ -37,10 +37,18 @@ function whatsaAppteams(){
 
     global $wpdb;
     $teams = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "whatsapp_teams");
-
-//     SELECT wp_whatsapp_teams.*, wp_team_members.name
-// FROM wp_whatsapp_teams
-// INNER JOIN wp_team_members ON wp_whatsapp_teams.team_members= wp_team_members.id;
+    foreach ($teams as $team) {
+        $membersIds = explode(",", $team->team_members);
+        $membersNames = array();
+        foreach ($membersIds as $memberId) {
+            $membername = $wpdb->get_results($wpdb->prepare("SELECT name FROM " . $wpdb->prefix . "team_members WHERE id = $memberId"));
+            if ($membername[0]->name != "") {
+                array_push($membersNames, $membername[0]->name);
+            }
+        }
+        $membersNames = implode(", ", $membersNames);
+        $team->team_members = $membersNames;
+    }
 
     return $teams;
 }

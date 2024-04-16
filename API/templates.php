@@ -43,6 +43,18 @@ function whatsaAppTemplates()
 {
     global $wpdb;
     $templates = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "whatsapp_templates");
+    foreach($templates as $template) {
+        $teamsIds = explode(",", $template->teams_id);
+        $teamsName = array();
+        foreach($teamsIds as $teamId) {
+            $teamnames = $wpdb->get_results("SELECT team_name FROM ". $wpdb->prefix."whatsapp_teams WHERE id = $teamId");
+            if($teamnames[0]->team_name != ""){
+                array_push($teamsName, $teamnames[0]->team_name);    
+        }
+    }
+    $teamsName = implode(", ", $teamsName);
+    $template->teams_id = $teamsName;
+    }
     return $templates;
 }
 

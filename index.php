@@ -9,6 +9,7 @@ include 'includes/install.php';
 register_activation_hook(__FILE__, 'whatsappActivation');
 require(plugin_dir_path(__FILE__) . 'API/templates.php');
 require(plugin_dir_path(__FILE__) . 'API/teams.php');
+require(plugin_dir_path(__FILE__) . 'API/members.php');
 class Whatsapp_Templates
 {
     public function __construct()
