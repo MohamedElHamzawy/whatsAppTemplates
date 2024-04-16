@@ -18,7 +18,10 @@ class Whatsapp_Templates
     function addToMenu()
     {
         $mainHook = add_menu_page('Whatsapp Templates', 'Whatsapp Templates', 'manage_options', 'whatsapp-templates', array($this, 'whatsappTemplatesPage'), 'dashicons-text', 10);
+        $teamsHook = add_submenu_page('whatsapp-templates', 'Whatsapp Teams' , 'Whatsapp Templates' , 'manage_options' ,'whatsapp-templates' ,array($this,'whatsappTemplatesPage'));
+        $teamsHook = add_submenu_page('whatsapp-templates', 'Whatsapp Teams' , 'Whatsapp Teams' , 'manage_options' ,'whatsapp-teams' ,array($this,'teamsSubPage'));
         add_action("load-{$mainHook}", array($this, "pluginFiles"));
+        add_action("load-{$teamsHook}", array($this, "pluginFiles"));
     }
 
     function pluginFiles()
@@ -29,6 +32,10 @@ class Whatsapp_Templates
     function whatsappTemplatesPage()
     {
         include 'pages/templates.php';
+    }
+    function teamsSubPage()
+    {
+        include 'pages/teams.php';
     }
 }
 new Whatsapp_Templates();

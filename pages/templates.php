@@ -87,17 +87,18 @@ if (isset($_GET["template"]) && !empty($_GET["template"])) {
 }
 ?>
 <script>
+    const websiteUrl = '<?php echo get_site_url(); ?>';  // Assuming script is within WordPress
     jQuery(document).ready(function() {
         // Get all templates API
         let tbody = jQuery("#templates-table-body");
         if (tbody) {
             jQuery.get(
-                'http://octagator.local/wp-json/whatsapp/v1/templates',
+                `${websiteUrl}/wp-json/whatsapp/v1/templates`,
                 function(data) {
                     for (let i = 0; i < data.length; i++) {
                         tbody.append(`
                         <tr>
-                            <td><a href="http://octagator.local/wp-admin/admin.php?page=whatsapp-templates&template=${data[i].id}">${data[i].template_name}</a></td>
+                            <td><a href="${websiteUrl}/wp-admin/admin.php?page=whatsapp-templates&template=${data[i].id}">${data[i].template_name}</a></td>
                             <td>${data[i].template_status}</td>
                             <td>${data[i].content}</td>
                             <td>${data[i].teams_id}</td>
@@ -121,12 +122,12 @@ if (isset($_GET["template"]) && !empty($_GET["template"])) {
                 content: content
             };
             jQuery.post(
-                'http://octagator.local/wp-json/whatsapp/v1/templates',
+                `${websiteUrl}/wp-json/whatsapp/v1/templates`,
                 data,
                 function(data) {
                     alert(data.message);
                     window.location.reload();
-                }
+                },///////////////////*********************************************************************************************************************-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++------------------------------+ */
             );
         })
     }
@@ -166,7 +167,7 @@ if (isset($_GET["template"]) && !empty($_GET["template"])) {
         addTeamBtn.addEventListener("click", function() {
             let tempId = document.getElementById("tempId").value;
             jQuery.post(
-                `http://octagator.local/wp-json/whatsapp/v1/templates/${tempId}`, {
+                `${websiteUrl}wp-json/whatsapp/v1/templates/${tempId}`, {
                     teams: teamsIdArray
                 },
                 function(data) {
