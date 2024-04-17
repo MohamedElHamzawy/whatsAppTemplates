@@ -30,8 +30,11 @@ function whatsaAppTeamsRoutes(){
             )
         ));
 
+        register_rest_route("whatsapp/v1", "teams/(?P<id>\d+)", array(
+            "methods" => "DELETE",
+            "callback" => "deleteTeam"
+        ));
 }
-
 
 function whatsaAppteams(){
 
@@ -95,6 +98,17 @@ function updateTeam($body){
         "message" => "Team updated successfully"
     );
 
+}
+
+function deleteTeam($body){
+
+    global $wpdb;
+    $table = $wpdb->prefix . "whatsapp_teams";
+    $teamId = $body["id"];
+    $wpdb->delete($table, array("id" => $teamId));
+    return array(
+        "message" => "Team deleted successfully"
+    );
 }
 
 ?>
